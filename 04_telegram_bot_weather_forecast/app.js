@@ -37,7 +37,7 @@ const timer = (data, msg, interval) => {
       await bot.sendMessage(chatId, message);
 
       index++;
-    }, interval * 1000);
+    }, interval * 60 * 60 * 1000);
   }
 };
 

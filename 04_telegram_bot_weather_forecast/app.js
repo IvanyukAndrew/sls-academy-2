@@ -10,36 +10,6 @@ bot.setMyCommands([
   { command: "/start", description: "Start to work with bot" },
 ]);
 
-<<<<<<< HEAD
-=======
-const timer = (data, msg, interval) => {
-  let index = 0;
-
-  if (index >= data.length) {
-    clearInterval(outputForecast);
-  }
-
-  if (!msg) {
-    clearInterval(outputForecast);
-  } else {
-    outputForecast = setInterval(async () => {
-      const chatId = msg.chat.id;
-
-      const dateTime = new Date(data[index].dt * 1000);
-      const weather = data[index].weather[0].description;
-      const temperature = data[index].main.temp - 273.15;
-
-      let message = `Date: ${dateTime}\n
-      Weather: ${weather}\n
-      Temperature: ${temperature.toFixed(2)}°C`;
-
-      await bot.sendMessage(chatId, message);
-
-      index++;
-    }, interval * 60 * 60 * 1000);
-  }
-};
-
 const getForecast = async () => {
   try {
     const url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${weatherAPI}`;
@@ -51,7 +21,6 @@ const getForecast = async () => {
   }
 };
 
->>>>>>> b05df29022184bbc1891984846f2a6a6a644b668
 bot.onText(/\/start/, (msg) => {
   const chatId = msg.chat.id;
   const text = "Welcome to the Weather Forecast Bot!";
